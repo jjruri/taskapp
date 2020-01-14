@@ -56,15 +56,36 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="9Gf-zb-IdB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IAu-qJ-UXF"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IAu-qJ-UXF">
+                            <connections>
+                                <segue destination="KRc-ba-hqd" kind="show" id="JcC-cZ-3Y4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="szQ-z4-qZH" id="1G6-xi-YB2"/>
+                        <segue destination="KRc-ba-hqd" kind="show" identifier="cellSegue" id="ZTt-TK-oUQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="97.767857142857139"/>
+        </scene>
+        <!--Input View Controller-->
+        <scene sceneID="7Rb-G5-PsJ">
+            <objects>
+                <viewController id="KRc-ba-hqd" customClass="InputViewController" customModule="taskapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XoT-RI-BEO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="kD6-lF-iiI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u2Q-Yh-ZKR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQS-OO-N4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sq8-v6-FFY">
@@ -85,4 +106,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZTt-TK-oUQ"/>
+    </inferredMetricsTieBreakers>
 </document>
