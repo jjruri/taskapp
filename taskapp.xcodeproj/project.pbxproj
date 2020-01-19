@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0160334F23D497D3006C1398 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160334E23D497D3006C1398 /* Task.swift */; };
 		01A87CA523CBFF6A0076A47A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A87CA423CBFF6A0076A47A /* AppDelegate.swift */; };
 		01A87CA723CBFF6A0076A47A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A87CA623CBFF6A0076A47A /* SceneDelegate.swift */; };
 		01A87CA923CBFF6A0076A47A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A87CA823CBFF6A0076A47A /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0160334E23D497D3006C1398 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		01A87CA123CBFF6A0076A47A /* taskapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A87CA423CBFF6A0076A47A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01A87CA623CBFF6A0076A47A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				01A87CAD23CBFF710076A47A /* Assets.xcassets */,
 				01A87CAF23CBFF710076A47A /* LaunchScreen.storyboard */,
 				01A87CB223CBFF710076A47A /* Info.plist */,
+				0160334E23D497D3006C1398 /* Task.swift */,
 			);
 			path = taskapp;
 			sourceTree = "<group>";
@@ -83,7 +86,6 @@
 				11A1AE8E99E698FDBB604978 /* Pods-taskapp.debug.xcconfig */,
 				BA67F15D38B441D0DDFF5F54 /* Pods-taskapp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -212,6 +214,7 @@
 			files = (
 				01A87CA923CBFF6A0076A47A /* ViewController.swift in Sources */,
 				01A87CA523CBFF6A0076A47A /* AppDelegate.swift in Sources */,
+				0160334F23D497D3006C1398 /* Task.swift in Sources */,
 				01A87CA723CBFF6A0076A47A /* SceneDelegate.swift in Sources */,
 				01A87CBF23CD592C0076A47A /* InputViewController.swift in Sources */,
 			);
