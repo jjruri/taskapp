@@ -9,10 +9,11 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var categoryFilter: UITextField!
+    @IBOutlet weak var categoryFilter: UISearchBar!
+    
     
     
     
@@ -21,9 +22,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     // Realmインスタンスを取得する
     let realm = try! Realm()
     
-    // DB内のタスクが格納されるリストをつくる
-    // 日付の近い順でソート：昇順
-    // 以降内容をアップデートするとリスト内は自動的に更新される。
+    // DB内のタスクをまとめてとってくる
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
 
@@ -33,24 +32,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        categoryFilter.text = ""
+        categoryFilter.delegate = self
     }
 
-    
+    //ここから先、何か行われた時の処理をまとめて記載する
     //タスクの数はDBからの返答を保持すインスタンス（変数）であるtaskArrayの数を入れる
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskArray.count
     }
     
-
     //セルを生成して、中身を決める処理
-    //なので利用できるセルを持ってきて
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell( withIdentifier: "Cell", for: indexPath)
-        let task = taskArray[indexPath.row]//セル番号と同じtaskArrayの中身をとってきてtask
-        
-        cell.textLabel?.text = task.title//cellのテキストラベルにtaskのタイトルを入れる
-        
+        let task = taskArray[indexPath.row]
+    
+        cell.textLabel?.text = task.title
         let formatter = DateFormatter()//データフォーマットのメソッドをインスタンス化
         //formatter.timeZone = TimeZone.current
         //formatter.locale = Locale(identifier: "ja_JP")
@@ -62,10 +58,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
+    //選択したセル番号を引き渡すためのメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "cellSegue", sender: nil)
     }
     
+    //スライドした時に何を出すか（削除）
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -84,7 +82,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let inputViewController:InputViewController = segue.destination as! InputViewController
         if segue.identifier == "cellSegue" /*編集のためにタスクが押下された場合の処理*/{
             let indexPath = self.tableView.indexPathForSelectedRow
-            inputViewController.task /*遷移後の画面で使うtaskという変数に対して*/ = taskArray[indexPath!.row]/*taskArrayの内容を渡す*/
+            inputViewController.task /*遷移後の画面で使うtaskという変数に対して*/ = taskArray[indexPath!.row]/*該当する行番号のtaskArray内容を渡す*/
         }
         else/*新規タスク追加のために+ボタンが押下された場合の処理*/{
             let task = Task()
