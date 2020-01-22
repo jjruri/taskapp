@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="szQ-z4-qZH">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="142" width="414" height="720"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="HcI-0T-1YV" detailTextLabel="MyR-Bt-k7Q" style="IBUITableViewCellStyleSubtitle" id="TlU-uB-BV1">
@@ -45,12 +45,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Btk-jT-5Ph">
+                                <rect key="frame" x="10" y="99" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="szQ-z4-qZH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AGT-At-NBd"/>
+                            <constraint firstItem="Btk-jT-5Ph" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="MgG-H6-p79"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="szQ-z4-qZH" secondAttribute="bottom" id="ScS-uO-vks"/>
+                            <constraint firstItem="szQ-z4-qZH" firstAttribute="top" secondItem="Btk-jT-5Ph" secondAttribute="bottom" constant="10" id="TV8-Nf-kpp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Btk-jT-5Ph" secondAttribute="trailing" constant="10" id="be5-zm-Jmd"/>
                             <constraint firstItem="szQ-z4-qZH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="efG-JH-UBh"/>
+                            <constraint firstItem="Btk-jT-5Ph" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="mMv-bg-uqD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="szQ-z4-qZH" secondAttribute="trailing" id="tHX-uw-ewe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -63,6 +71,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryFilter" destination="Btk-jT-5Ph" id="86a-3U-jcF"/>
                         <outlet property="tableView" destination="szQ-z4-qZH" id="1G6-xi-YB2"/>
                         <segue destination="KRc-ba-hqd" kind="show" identifier="cellSegue" id="ZTt-TK-oUQ"/>
                     </connections>
@@ -113,11 +122,25 @@
                                     <constraint firstAttribute="height" constant="120" id="pV0-O8-UQ6"/>
                                 </constraints>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPS-CE-18W">
+                                <rect key="frame" x="10" y="464" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aa7-8g-cJO">
+                                <rect key="frame" x="10" y="495" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="kD6-lF-iiI" firstAttribute="trailing" secondItem="Jgi-Es-M6K" secondAttribute="trailing" constant="10" id="04k-Zx-H40"/>
                             <constraint firstItem="kSd-MN-aIb" firstAttribute="leading" secondItem="kD6-lF-iiI" secondAttribute="leading" constant="10" id="0Dm-LD-K7S"/>
+                            <constraint firstItem="zPS-CE-18W" firstAttribute="leading" secondItem="kD6-lF-iiI" secondAttribute="leading" constant="10" id="30c-me-C7U"/>
+                            <constraint firstItem="Aa7-8g-cJO" firstAttribute="top" secondItem="zPS-CE-18W" secondAttribute="bottom" constant="10" id="3mj-wG-ZVv"/>
+                            <constraint firstItem="Aa7-8g-cJO" firstAttribute="leading" secondItem="kD6-lF-iiI" secondAttribute="leading" constant="10" id="8pm-RV-oZr"/>
                             <constraint firstItem="bda-dD-6Sb" firstAttribute="leading" secondItem="kD6-lF-iiI" secondAttribute="leading" constant="10" id="AJJ-0m-qQN"/>
                             <constraint firstItem="kSd-MN-aIb" firstAttribute="top" secondItem="bda-dD-6Sb" secondAttribute="bottom" constant="10" id="BBL-0A-vuR"/>
                             <constraint firstItem="Jgi-Es-M6K" firstAttribute="leading" secondItem="kD6-lF-iiI" secondAttribute="leading" constant="10" id="GTT-zQ-IPu"/>
@@ -125,8 +148,11 @@
                             <constraint firstItem="kD6-lF-iiI" firstAttribute="trailing" secondItem="bda-dD-6Sb" secondAttribute="trailing" constant="10" id="Oip-n4-UnP"/>
                             <constraint firstItem="kD6-lF-iiI" firstAttribute="trailing" secondItem="mJt-wi-W1c" secondAttribute="trailing" id="Pdv-SA-nfu"/>
                             <constraint firstItem="mJt-wi-W1c" firstAttribute="leading" secondItem="XoT-RI-BEO" secondAttribute="leading" id="Q6G-n5-GfY"/>
+                            <constraint firstItem="kD6-lF-iiI" firstAttribute="trailing" secondItem="Aa7-8g-cJO" secondAttribute="trailing" constant="10" id="SRC-Hr-mvV"/>
                             <constraint firstItem="jkD-xU-fkh" firstAttribute="leading" secondItem="kD6-lF-iiI" secondAttribute="leading" constant="10" id="TwV-YS-y0M"/>
                             <constraint firstItem="kD6-lF-iiI" firstAttribute="trailing" secondItem="jkD-xU-fkh" secondAttribute="trailing" constant="10" id="VO0-uo-U5f"/>
+                            <constraint firstItem="kD6-lF-iiI" firstAttribute="trailing" secondItem="zPS-CE-18W" secondAttribute="trailing" constant="10" id="WvQ-9c-WnX"/>
+                            <constraint firstItem="zPS-CE-18W" firstAttribute="top" secondItem="mJt-wi-W1c" secondAttribute="bottom" constant="10" id="Y0h-eL-mIw"/>
                             <constraint firstItem="jkD-xU-fkh" firstAttribute="top" secondItem="kD6-lF-iiI" secondAttribute="top" constant="10" id="YXo-cC-8Wp"/>
                             <constraint firstItem="kD6-lF-iiI" firstAttribute="trailing" secondItem="kSd-MN-aIb" secondAttribute="trailing" constant="10" id="aQk-lO-Eit"/>
                             <constraint firstItem="Jgi-Es-M6K" firstAttribute="top" secondItem="kSd-MN-aIb" secondAttribute="bottom" constant="10" id="k7X-YH-9Py"/>
@@ -136,6 +162,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="u2Q-Yh-ZKR"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="Aa7-8g-cJO" id="wfH-1F-kXj"/>
                         <outlet property="contentsTextView" destination="Jgi-Es-M6K" id="4Az-PH-wuI"/>
                         <outlet property="datePicker" destination="mJt-wi-W1c" id="UlG-iB-tDU"/>
                         <outlet property="titleTextField" destination="bda-dD-6Sb" id="YBZ-ru-Yf3"/>

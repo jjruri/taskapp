@@ -12,35 +12,43 @@ import RealmSwift
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var categoryFilter: UITextField!
+    
+    
     
     var task:  Task!
+    
     // Realmインスタンスを取得する
     let realm = try! Realm()
-
+    
     // DB内のタスクが格納されるリストをつくる
     // 日付の近い順でソート：昇順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
-    
+
     //画面描画い時にテーブルビューを使えるようにする
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        categoryFilter.text = ""
     }
 
+    
     //タスクの数はDBからの返答を保持すインスタンス（変数）であるtaskArrayの数を入れる
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskArray.count
     }
     
+
     //セルを生成して、中身を決める処理
     //なので利用できるセルを持ってきて
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell( withIdentifier: "Cell", for: indexPath)
-        let task = taskArray[indexPath.row]//セル番号と同じtaskArrayの中身をとってきてtaskにいれる（インスタンス化）
+        let task = taskArray[indexPath.row]//セル番号と同じtaskArrayの中身をとってきてtask
+        
         cell.textLabel?.text = task.title//cellのテキストラベルにtaskのタイトルを入れる
         
         let formatter = DateFormatter()//データフォーマットのメソッドをインスタンス化
@@ -99,5 +107,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.reloadData()
         print(taskArray)
     }
+
+    
+
 
 }
