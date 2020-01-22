@@ -14,17 +14,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     
     var task:  Task!
-
     // Realmインスタンスを取得する
     let realm = try! Realm()
 
-    // DB内のタスクが格納されるリスト。
+    // DB内のタスクが格納されるリストをつくる
     // 日付の近い順でソート：昇順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
     
-    
+    //画面描画い時にテーブルビューを使えるようにする
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,17 +36,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return taskArray.count
     }
     
+    //セルを生成して、中身を決める処理
+    //なので利用できるセルを持ってきて
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell( withIdentifier: "Cell", for: indexPath)
-        let task = taskArray[indexPath.row]
-        cell.textLabel?.text = task.title
+        let task = taskArray[indexPath.row]//セル番号と同じtaskArrayの中身をとってきてtaskにいれる（インスタンス化）
+        cell.textLabel?.text = task.title//cellのテキストラベルにtaskのタイトルを入れる
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let formatter = DateFormatter()//データフォーマットのメソッドをインスタンス化
+        //formatter.timeZone = TimeZone.current
+        //formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"//型式をyyyymmddと時分にする
         
         let dateString:String = formatter.string(from: task.date)
-        cell.detailTextLabel?.text = dateString
-        print(taskArray)
+        cell.detailTextLabel?.text = dateString //参考（https://weblabo.oscasierra.net/swift-uitableview-2/）
+        //print(dateString)
         return cell
     }
     
@@ -94,6 +97,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        print(taskArray)
     }
 
 }
