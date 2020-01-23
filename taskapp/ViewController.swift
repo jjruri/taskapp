@@ -16,16 +16,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-    
+    //タスクインスタンス
     var task:  Task!
-    
-    // Realmインスタンスを取得する
+    // Realmインスタンス
     let realm = try! Realm()
+    //サーチバーインスタンス
+    var category: UISearchBar!
     
-    // DB内のタスクをまとめてとってくる
+    // DB内のタスク配列
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
+    
 
+    
     //画面描画い時にテーブルビューを使えるようにする
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.delegate = self
         tableView.dataSource = self
         categoryFilter.delegate = self
+        
+        category = UISearchBar()
+        category.showsCancelButton = true
     }
 
     //ここから先、何か行われた時の処理をまとめて記載する

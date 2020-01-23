@@ -46,18 +46,18 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="4ZE-e4-on7">
-                                <rect key="frame" x="10" y="88" width="414" height="56"/>
+                                <rect key="frame" x="10" y="88" width="394" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="4ZE-e4-on7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="20W-Mx-rsU"/>
                             <constraint firstItem="4ZE-e4-on7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7rS-FI-S5L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4ZE-e4-on7" secondAttribute="trailing" constant="10" id="AaZ-Xc-TAS"/>
                             <constraint firstItem="szQ-z4-qZH" firstAttribute="top" secondItem="4ZE-e4-on7" secondAttribute="bottom" constant="10" id="KAg-wv-miN"/>
-                            <constraint firstItem="4ZE-e4-on7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="10" id="RFm-VG-YSi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="szQ-z4-qZH" secondAttribute="bottom" id="ScS-uO-vks"/>
                             <constraint firstItem="szQ-z4-qZH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="efG-JH-UBh"/>
-                            <constraint firstItem="4ZE-e4-on7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mrw-Ab-NIF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="szQ-z4-qZH" secondAttribute="trailing" id="tHX-uw-ewe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
