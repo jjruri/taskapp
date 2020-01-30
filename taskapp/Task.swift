@@ -22,7 +22,7 @@ class Task: Object {
     @objc dynamic var date = Date()
     
     // カテゴリー
-    @objc dynamic var category = ""
+    @objc dynamic var category:String = ""
     
 
     // id をプライマリーキーとして設定

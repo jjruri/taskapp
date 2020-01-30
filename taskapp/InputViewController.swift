@@ -24,11 +24,18 @@ class InputViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
         
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date
         categoryTextField.text = task.category
+    }
+    
+    @objc func dismissKeyboard(){
+        // キーボードを閉じる
+        view.endEditing(true)
     }
     
     func setNotification (task: Task){
