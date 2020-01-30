@@ -75,6 +75,10 @@ class InputViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func nameFiledClose(_ sender: Any) {
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         try! realm.write {
             self.task.title = self.titleTextField.text!
